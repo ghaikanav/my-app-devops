@@ -22,11 +22,20 @@ func envEchoHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, message)
 }
 
+func secretEchoHandler(w http.ResponseWriter, r *http.Request) {
+	secret := os.Getenv("URL")
+	if secret == "" {
+		secret = "Unknown"
+	}
+	message := fmt.Sprintf("Hello %s! This message contains an environment variable: URL=%s", secret, secret)
+	fmt.Fprintf(w, message)
+}
 func main() {
 	// Define routes
 	http.HandleFunc("/", helloHandler)
 	http.HandleFunc("/hello", helloHandler)
 	http.HandleFunc("/env-echo", envEchoHandler)
+	http.HandleFunc("/secret-echo", secretEchoHandler)
 
 	// Set port from environment variable or use default
 	port := os.Getenv("PORT")
