@@ -28,6 +28,11 @@ spec:
                 configMapKeyRef:
                   name: my-app-config
                   key: USER
+            - name: URL
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: connection-string
           imagePullPolicy: IfNotPresent
           resources:
             requests:
