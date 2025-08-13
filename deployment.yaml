@@ -19,9 +19,15 @@ spec:
             - containerPort: 8080
           env:
             - name: PORT
-              value: "8080"
+              valueFrom:
+                configMapKeyRef:
+                  name: my-app-config
+                  key: PORT
             - name: USER
-              value: "Kanav"
+              valueFrom:
+                configMapKeyRef:
+                  name: my-app-config
+                  key: USER
           imagePullPolicy: IfNotPresent
           resources:
             requests:
