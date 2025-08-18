@@ -27,7 +27,7 @@ func secretEchoHandler(w http.ResponseWriter, r *http.Request) {
 	if secret == "" {
 		secret = "Unknown"
 	}
-	message := fmt.Sprintf("Hello %s! This message contains an environment variable: URL=%s", secret, secret)
+	message := fmt.Sprintf("Hello %s! This message contains a secret: URL=%s", secret, secret)
 	fmt.Fprintf(w, message)
 }
 func main() {
