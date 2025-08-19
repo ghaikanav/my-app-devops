@@ -23,11 +23,11 @@ func envEchoHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func secretEchoHandler(w http.ResponseWriter, r *http.Request) {
-	secret := os.Getenv("URL")
+	secret := os.Getenv("SLACK_API_KEY")
 	if secret == "" {
 		secret = "Unknown"
 	}
-	message := fmt.Sprintf("Hello %s! This message contains a secret: URL=%s", secret, secret)
+	message := fmt.Sprintf("Hello! This message contains a secret: SLACK_API_KEY=%s", secret)
 	fmt.Fprintf(w, message)
 }
 func main() {
