@@ -27,7 +27,7 @@ func secretEchoHandler(w http.ResponseWriter, r *http.Request) {
 	if secret == "" {
 		secret = "Unknown"
 	}
-	message := fmt.Sprintf("Hi! This message contains a secret: SLACK_API_KEY=%s", secret)
+	message := fmt.Sprintf("Hello!!!!!!!!! This message contains a secret: SLACK_API_KEY=%s", secret)
 	fmt.Fprintf(w, message)
 }
 func main() {
